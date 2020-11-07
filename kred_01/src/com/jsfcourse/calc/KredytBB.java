@@ -52,6 +52,7 @@ public class KredytBB {
 			double Splata = 0;
 			double Odsetki = 0;
 			double Kapital = 0;
+			double Wynik = 0;
 			double y = 0;
 			double Procent = Oprocentowanie / 100;
 			for (int x = 0; x >= 0; x++) {
@@ -63,11 +64,12 @@ public class KredytBB {
 				Kapital = Kwota - y;
 				Odsetki = Kapital * Procent;
 				Splata = Odsetki / 12 + Rata;
+				Wynik= Wynik + Splata;
 				y = Rata * x;
 				x++;
 			}
 
-			double result = Splata;
+			result = Wynik;
 			return true;
 
 		} catch (Exception e) {
@@ -79,7 +81,8 @@ public class KredytBB {
 
 	public String calc() {
 		if (doTheMath()) {
-			return null;
+			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "wynik" + result, null));
+			
 		}
 		return null;
 	}
