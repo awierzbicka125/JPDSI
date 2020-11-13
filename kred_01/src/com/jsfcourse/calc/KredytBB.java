@@ -50,13 +50,8 @@ public class KredytBB {
 			double Oprocentowanie = Double.parseDouble(this.Oprocentowanie)/100;
 			double q = (1+(Oprocentowanie/12));
 			double Rata = Kwota*(Math.pow(q, Miesiace)) * ((q-1)/(Math.pow(q,Miesiace)-1));
-			
-			
 			double Wynik = Rata*Miesiace;
 			
-			
-			
-
 			result = Wynik;
 			return true;
 
