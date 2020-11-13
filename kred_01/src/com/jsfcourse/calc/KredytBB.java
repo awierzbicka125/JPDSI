@@ -47,27 +47,15 @@ public class KredytBB {
 		try {
 			double Kwota = Double.parseDouble(this.Kwota);
 			double Miesiace = Double.parseDouble(this.Miesiace);
-			double Oprocentowanie = Double.parseDouble(this.Oprocentowanie);
-			double Rata = Kwota / Miesiace;
-			double Splata = 0;
-			double Odsetki = 0;
-			double Kapital = 0;
-			double Wynik = 0;
-			double y = 0;
-			double Procent = Oprocentowanie / 100;
-			for (int x = 0; x >= 0; x++) {
-
-				if (Kwota - y <= 0) {
-					break;
-				}
-
-				Kapital = Kwota - y;
-				Odsetki = Kapital * Procent;
-				Splata = Odsetki / 12 + Rata;
-				Wynik= Wynik + Splata;
-				y = Rata * x;
-				x++;
-			}
+			double Oprocentowanie = Double.parseDouble(this.Oprocentowanie)/100;
+			double q = (1+(Oprocentowanie/12));
+			double Rata = Kwota*(Math.pow(q, Miesiace)) * ((q-1)/(Math.pow(q,Miesiace)-1));
+			
+			
+			double Wynik = Rata*Miesiace;
+			
+			
+			
 
 			result = Wynik;
 			return true;
@@ -81,7 +69,7 @@ public class KredytBB {
 
 	public String calc() {
 		if (doTheMath()) {
-			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "wynik" + result, null));
+			ctx.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Ca³kowity koszt kredytu " + result, null));
 			
 		}
 		return null;

@@ -19,15 +19,24 @@
 	<h:panelGrid id="grid" columns="3" cellpadding="5">
 		
 		<p:outputLabel for="kwota" value="kwota:"/>
-  		<p:inputText id="kwota" value="#{kredytBB.kwota}" required="true" requiredMessage="brak kwoty" />
+  		<p:inputText id="kwota" value="#{kredytBB.kwota}" required="true" requiredMessage="brak kwoty"
+  		validatorMessage="Kwota minimalna 5000zł"> 
+  		<f:validateDoubleRange minimum="5000"/>
+  		</p:inputText>
   		<p:message for="kwota" />
   		
   		<p:outputLabel for="miesiace" value="miesiace:"/>
-  		<p:inputText id="miesiace" value="#{kredytBB.miesiace}" required="true" requiredMessage="brak miesiecy" />
+  		<p:inputText id="miesiace" value="#{kredytBB.miesiace}" required="true" requiredMessage="brak miesiecy" 
+  		validatorMessage="Minimalna ilosc miesiecy to 3"> 
+  		<f:validateDoubleRange minimum="3"/>
+  		</p:inputText>
   		<p:message for="miesiace" />
   		
 		<p:outputLabel for="oprocentowanie" value="oprocentowanie:"/>
-  		<p:inputText id="oprocentowanie" value="#{kredytBB.oprocentowanie}" required="true" requiredMessage="brak oprocentowania" />
+  		<p:inputText id="oprocentowanie" value="#{kredytBB.oprocentowanie}" required="true" requiredMessage="brak oprocentowania" 
+		validatorMessage="Oprocentowanie nie może byc wieksze niz 10% oraz nie mniejsze niz 3%"> 
+  		<f:validateDoubleRange minimum="3" maximum="10"/>
+  		</p:inputText>
   		<p:message for="oprocentowanie" />
 		
   		
