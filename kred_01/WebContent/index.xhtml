@@ -6,12 +6,12 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:p="http://primefaces.org/ui">
 	
-<h:head>
-	<title>Kalkulator kosztow kredytu</title>
-</h:head>
-<h:body>
+<ui:composition template="/templates/page-template.xhtml">
 
-	<p:panel header="Kalkulator kredytowy"  toggleable="true" toggleSpeed="400" style="margin: 1em auto;">
+	<ui:define name="pageContent">
+
+
+	<p:panel header="Kalkulator"  toggleable="true" toggleSpeed="400" style="margin: 1em auto;">
 	
 
 	<h:form id="bla" >
@@ -50,6 +50,9 @@
 		
 	</h:form>
 	
-</p:panel>
-</h:body>
+	</p:panel>
+	
+	</ui:define>
+
+</ui:composition>
 </html>
